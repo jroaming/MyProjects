@@ -1,0 +1,213 @@
+html {
+  overflow: hidden;
+}
+
+html body {
+  background: black;
+  color: white;
+}
+
+html body #titol {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+html body .grid-container {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: 'partida nav mini' 'equipo objectes controls';
+  grid-gap: 10px;
+  -ms-grid-columns: 25% 50% 25%;
+      grid-template-columns: 25% 50% 25%;
+  padding: 10px;
+}
+
+html body .grid-container .partida {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: partida;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .grid-container .partida .botonOpciones {
+  border: solid #bd8888 2px;
+  background-color: #3a0000;
+  color: white;
+  height: 35px;
+  width: 230px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 15px;
+}
+
+html body .grid-container .equipo {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: equipo;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 5px;
+  font-size: 16px;
+}
+
+html body .grid-container .equipo #pregunta {
+  margin-top: 50px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+html body .grid-container .equipo input[type=text] {
+  border-radius: 6px;
+  height: 25px;
+}
+
+html body .grid-container .equipo input[type=button] {
+  border-radius: 10px;
+  color: white;
+  background-color: #3a0000;
+  border: 1.5px solid #bd8888;
+  width: 70px;
+  height: 33px;
+  margin-left: 5px;
+}
+
+html body .grid-container .nav {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: nav;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+html body .grid-container .mini {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: mini;
+  -ms-grid-column-align: center;
+      justify-self: center;
+}
+
+html body .grid-container .mini .panellOpciones {
+  height: 0px;
+  width: 200px;
+  top: 20px;
+  left: 20px;
+  overflow: hidden;
+  z-index: 100;
+  -webkit-transition: height 0.2s linear 0s;
+  transition: height 0.2s linear 0s;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0;
+}
+
+html body .grid-container .mini .mapa-container {
+  border: solid #3a0000 2px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto auto auto auto auto auto auto;
+      grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+html body .grid-container .mini .mapa-container .mapa-item {
+  background-color: black;
+  padding: 10px;
+  font-size: 10px;
+  text-align: center;
+}
+
+html body .grid-container .controls {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: controls;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+html body .grid-container .controls #botons1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .grid-container .controls #botons1 #parriba {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+html body .grid-container .controls #botons2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+html body .grid-container .controls #botons2 #derecha {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+html body .grid-container .controls #botons2 #izquierda {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+html body .grid-container .controls #botons3 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+html body .grid-container .controls #botons3 #pabajo {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+body .grid-container .partida button:hover {
+  border: solid white 3px;
+  font-weight: bold;
+}
+
+body .grid-container .equipo input[type=button]:hover {
+  border: solid white 2px;
+  font-weight: bold;
+}
+/*# sourceMappingURL=stylesheet.css.map */

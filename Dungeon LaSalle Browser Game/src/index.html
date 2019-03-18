@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dungeon</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="Dungeon Master AJAX Game" />
+    <meta name="keywords" content="dungeon, ajax, javascript, css" />
+    <meta name="author" content="Daniel Amo" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/stylesheet.css" type="text/css" media="all" />
+    <script src="js/juego.js"></script>
+    <script src="js/gestionPartidas.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/server.js"></script>
+  </head>
+  <body>
+
+    <div>
+      <img id="titol" src="img/Titol.png" alt="Imagen de titulo">
+    </div>
+
+    <div class="grid-container">
+        <div class="partida" id="opciones" style="display: flex; flex-direction: column; justify-content: space-between; margin-top: 35px;">
+          <button id="cnueva" onclick="manageSlot('cargar', 'nueva')" class="botonOpciones">¡Empezar nueva partida!</button>
+          <div id="cargarPartida" style="display: flex; flex-direction: column;">
+            <button id="c1" onclick="manageSlot('cargar', '1')" class="botonOpciones">Cargar partida #1</button>
+            <button id="c2" onclick="manageSlot('cargar', '2')" class="botonOpciones">Cargar partida #2</button>
+          </div>
+          <div id="guardarPartida" style="display: flex; flex-direction: column;">
+            <button id="g1" onclick="manageSlot('guardar', '1')" style="opacity: 0.35;" class="botonOpciones" disabled>Guardar en slot #1</button>
+            <button id="g2" onclick="manageSlot('guardar', '2')" style="opacity: 0.35;" class="botonOpciones" disabled>Guardar en slot #2</button>
+          </div>
+          <div id="borrarPartida" style="display: flex; flex-direction: column;">
+            <button id="b1" onclick="manageSlot('borrar', '1')" class="botonOpciones">Borrar partida del slot #1</button>
+            <button id="b2" onclick="manageSlot('borrar', '2')" class="botonOpciones">Borrar partida del slot #2</button>
+          </div>
+        </div>
+
+        <div class="equipo" id="datos"></div>
+
+        <canvas class="nav" id="visor" width="400" height="400"></canvas>
+        
+        <div class="objectes" id="objectes"></div>
+
+        <div class="mini" id="minimapa">
+          <div id= "items">
+            <button id="item1" onclick="toggleItem('1')" itemName></button>
+            <button id="item2" onclick="toggleItem('2')" itemName></button>
+            <button id="item3" onclick="toggleItem('3')" itemName></button>
+          </div>
+          <div id="panellOpcions" class="panellOpciones">
+            <button id="equipar_dreta" onclick="equiparDreta(item)">Equipar dreta</button>
+            <button id="equipar_esquerra" onclick="equiparEsquerra(item)">Equipar esquerra</button>
+            <button id="borrar" onclick="borrarItem(item)">Borrar</button>
+          </div>
+        </div>
+
+        <div class="controls" id="controles">
+            <div id="botons1">
+                <img id="parriba" onclick="gestionaControls(id)" src="img/parriba.png" alt="imagen_arriba">
+              </div>
+              <div id="botons2">
+                <img id="izquierda" onclick="gestionaControls(id)" src="img/izquierda.png" alt="imagen_izquierda">
+                <img id="derecha" onclick="gestionaControls(id)" src="img/derecha.png" alt="imagen_derecha">
+              </div>
+              <div id="botons3">
+                  <img id="pabajo" onclick="gestionaControls(id)" src="img/pabajo.png" alt="imagen_abajo">
+              </div>
+        </div>
+
+    </div>
+
+    <div>
+      <audio id="music" src="media/audioFons.mp3" loop >play</audio>
+    </div>
+  </body>
+</html>

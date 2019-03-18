@@ -1,0 +1,166 @@
+//variables
+
+$granateBoto: #3a0000;
+$contorn: #bd8888;
+
+
+html {
+    overflow: hidden;
+
+    body{
+        background: black;
+        color: white;
+
+        #titol{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-areas:
+              'partida nav mini'
+              'equipo objectes controls';
+            grid-gap: 10px;
+            grid-template-columns: 25% 50% 25%;
+            padding: 10px;
+
+            .partida { 
+                grid-area: partida;
+                align-items: center;
+                
+                .botonOpciones {
+                    border: solid $contorn 2px;
+                    background-color: $granateBoto;
+                    color: white;
+                    height: 35px;
+                    width:230px;
+                    margin-top: 5px;
+                    margin-bottom: 5px;
+                    border-radius: 15px;
+                }
+                
+                
+            }
+            .equipo { 
+                font-family: Arial, Helvetica, sans-serif;
+                flex-direction: column;
+                grid-area: equipo; 
+                display: flex;
+                align-items: center;
+                line-height: 5px;
+                font-size: 16px;
+
+                #pregunta{
+                    margin-top: 50px;
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 15px;
+                }
+                input[type=text] {
+                    border-radius: 6px;
+                    height: 25px;
+                }
+                input[type=button]{
+                    border-radius: 10px;
+                    color:white;
+                    background-color:$granateBoto;
+                    border: 1.5px solid $contorn; 
+                    width: 70px;
+                    height: 33px;
+                    margin-left: 5px;
+                } 
+            }
+            .nav { 
+                grid-area: nav; 
+                justify-self: center;
+            }
+            .mini {
+                grid-area: mini;
+                justify-self: center;
+                #items{
+
+                }
+                .panellOpciones{
+                  height:0px;
+                  width:200px;
+                  top: 20px;
+                  left: 20px;
+                  overflow: hidden;
+                  z-index: 100;
+                  transition: height 0.2s linear 0s;
+                  display: flex;
+                  flex-direction: column;
+                  padding: 0;
+                }
+                .mapa-container {
+                    border: solid $granateBoto 2px;
+                    display: grid;
+                    grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+                    align-items: center;
+                    .mapa-item {
+                        background-color: black;
+                        padding: 10px;
+                        font-size: 10px;
+                        text-align: center;
+                    }
+                }
+            }
+            .controls { 
+                grid-area: controls;
+                display:flex;
+                flex-direction: column;
+
+                #botons1{
+                  display: flex;
+                  justify-content: center;
+                  #parriba{
+                    width: 50px;
+                    height: 50px;
+                    cursor: pointer;
+                  }
+                }
+                #botons2{
+                  display: flex;
+                  justify-content: space-evenly;
+                  #derecha{
+                    width: 50px;
+                    height: 50px;
+                    cursor: pointer;
+                  }
+                  #izquierda{
+                    width: 50px;
+                    height: 50px;
+                    cursor: pointer;
+                  }
+                }
+                #botons3{
+                    display: flex;
+                    justify-content: center; 
+                    #pabajo{
+                        width: 50px;
+                        height: 50px;
+                        cursor: pointer;
+                      }   
+                }
+                  
+            }
+            
+        }
+
+      }
+  }
+  
+
+  body .grid-container .partida button:hover {
+    border: solid white 3px;
+    font-weight: bold;
+    } 
+ 
+    body .grid-container .equipo input[type=button]:hover {
+        border: solid white 2px;
+        font-weight: bold;
+    } 
+      
+  

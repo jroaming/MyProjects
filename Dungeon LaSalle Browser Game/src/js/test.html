@@ -1,0 +1,26 @@
+<!DOCTYPE html5>
+<html>
+	<head>
+		<script type="text/javascript" src="server.js"></script>
+	</head>
+
+	<body>
+		<h2>XMLHTTPREQUEST PARA LA PRACTICA.</h2>
+		<p>ARRIBA EL BOTON Y ABAJO LA EXPLICACION DE LO QUE HACE Y COMO USARLO.</p>
+
+		<button onclick="createSlot('nueva')">Create new game slot!</button>
+		<p>Esto crea la partida nueva (petará si ya existe una: en este caso hay que llamar al delete slot,
+		pasandole como parametro "nueva", para que borre ese slot, y entonces crearla (este boton)</p>
+		<button onclick="getSlot('nueva')">Get defined game slot!</button>
+		<p>Esto devuelve el .json con la información del slot del servidor con el nombre que le pasamos por
+		parametro (ahora mismo: 'nueva' *mirar el .html para ver la llamada desde este boton*).</p>
+		<button onclick="requestAllSlots()">Get list of all game slots!</button>
+		<p>Esto devuelve una lista con todos los slots que existen actualmente en el servidor.</p>
+		<button onclick="deleteSlot('nueva')">Delete new-game slot!</button>
+		<p>Esto borra el slot que le pasamos por parámetro (ahora mismo: 'nueva' *mirar llamada en el boton del .html*)</p>
+		<button onclick="requestAttack(2,2)">Attack!</button>
+		<p>Esto llama a la funcion de ataque del servidor, y devuelve la vida a quitarle al objetivo durante el combate
+		(le pasamos como parametros el daño del atacante y la defensa del monguer al que van a golpear)</p>
+
+	</body>
+</html>
