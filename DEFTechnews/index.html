@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="Tech News"/>
+
+    <script src="js/codebird.js"></script>
+  	<script src="js/process.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/youtube.js"></script>
+
+    <title>Tech News</title>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div id="lobby" class="lobby">
+    <img id="lobby_img" src="image/lobby_loading.png"/>
+  </div>
+
+	<img id="logo" height="130px" src="image/tn.png" style="margin-top: 40px; margin-left: 80px; border-radius: 10px">
+	<img id="commands" src="image/tv_commands_1.png" style="display: none; position: fixed; bottom:0; right: 5%; margin-bottom: 3%; height: 112px; width: auto;">
+  <div id="catalog" style="margin: 50px 80px 10px 80px; height: 216px;">
+     <p id="catalog-title" style="width: 1920px; color: white; font-size: 200%; font-family: Verdana">MEDIA LIST</p>
+     <div style="display: flex; flex-direction: row; align-items: center; margin-left: 60px;">
+    		<img height="130px" src="image/engadget.jpg" id="cat1" class="menu-selected" style="margin-right: 80px; border-radius: 10px">
+    		<img height="130px" src="image/mashable.jpg" id="cat2" style="margin-right: 80px; border-radius: 10px">
+    		<img height="130px" src="image/tc.jpg" id="cat3" style="margin-right: 80px; border-radius: 10px">
+    		<img height="130px" src="image/verge.jpg" id="cat4" style="margin-right: 80px; border-radius: 10px">
+     </div>
+  </div>
+
+  <p id="title" style="width: 1920px; color: white; font-size: 200%; font-family: Verdana; margin-top: 50px; margin-left: 80px">NEWS</p>
+
+  <div id="news1" style="display: flex; flex-direction: row; justify-content: space-around; margin-top: 50px; margin-left: 96px; margin-right: 96px;">
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img1">
+  			<p id="prova-title1" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img2">
+  			<p id="prova-title2" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img3">
+  			<p id="prova-title3" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img4">
+  			<p id="prova-title4" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  </div>
+
+  <div id="news2" style="display: none; flex-direction: row; justify-content: space-around; margin-top: 50px; margin-left: 96px; margin-right: 96px;">
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img5">
+  			<p id="prova-title5" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img6">
+  			<p id="prova-title6" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img7">
+  			<p id="prova-title7" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img8">
+  			<p id="prova-title8" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  </div>
+
+  <div id="news3" style="display: none; flex-direction: row; justify-content: space-around; margin-top: 50px; margin-left: 96px; margin-right: 96px;">
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img9">
+  			<p id="prova-title9" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img10">
+  			<p id="prova-title10" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img11">
+  			<p id="prova-title11" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img12">
+  			<p id="prova-title12" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  </div>
+
+  <div id="news4" style="display: none; flex-direction: row; justify-content: space-around; margin-top: 50px; margin-left: 96px; margin-right: 96px;">
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img13">
+  			<p id="prova-title13" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img14">
+  			<p id="prova-title14" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img15">
+  			<p id="prova-title15" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  		<div class="new-catalog">
+  			<img height="200px" id="prova-img16">
+  			<p id="prova-title16" style="font-size:27px; color: white; width: 370px; margin-top:6px;"></p>
+  		</div>
+  </div>
+
+  <div id="new" style="margin-top: 50px; margin-left: 80px; margin-right: 80px; display: none">
+  		<p id="new-title" style="color: white; font-size: 54px; padding: 5px 15px 5px 15px; background-color: black; border: solid yellow 4px; text-align: center;"></p>
+  		<p id="new-content" style="color: white; font-size: 30px"></p>
+      <div id="media-content">
+      	<div style="display: flex; flex-direction: column;">
+      		<img id="new-image">
+      		<p id="caption" style="color: white; font-size: 30px; width: 640px; justify-content: flex-end;"> - </p>
+      	</div>
+      	
+       	<div id="player"></div>
+        
+      </div>
+  		<p id="new-author" style="color: white; font-size: 25px"></p>
+  		<div id="twitter" style="display:flex; flex-direction: row;">
+	  		<a id="share" style="margin-top: 20px;"><img id="img_twitter" src="image/twitter-logo.png" style="height: 75px; width: auto;"></a>
+	  		<p id="new-shared" style="display: none; color: #aafaff; font-size: 45px; margin-left: 20px;">¡Shared!</p>
+  		</div>
+  		<img id = "new-commands" src = "image/tv_commands_2.png" style = "position: fixed; bottom:0; right: 5%; margin-bottom: 3%; height: 112px; width: auto;">
+  </div>
+
+ <div id="trailer" class="media" style="margin-top: 50px; margin-left: 80px; margin-right: 80px; text-align: center; display: none">
+   <video id="video" src="video/trailer.mp4"></video>
+ </div>
+
+</body>
+
+</html>
