@@ -1,0 +1,8 @@
+{
+  "port_bbdd": 3306,
+  "ip_server": "localhost",
+  "nom_bbdd": "dbtroner",
+  "user_bbdd": "admin",
+  "pass_bbdd": "adminpass",
+  "port_client": "2000"
+}
