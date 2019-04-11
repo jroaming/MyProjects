@@ -1,0 +1,58 @@
+html {
+    background-color: #d1d1d1;
+}
+
+body {
+    font-family: "Courier New";
+    text-align: center;
+}
+
+h1 {
+    background: -webkit-linear-gradient(red, #333);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    border-bottom: 2px solid #260303;
+    border-top: 2px solid #e40a0a;
+
+    font-size: 75px;
+    font-weight: 400;
+    margin-left: 10%;
+    margin-right: 10%;
+
+    text-align: center;
+}
+
+#up_img {
+    background-color: #dacdcd;
+    border: 2px solid #260303;
+    border-radius: 10px;
+    vertical-align: middle;
+}
+
+#game_guide {
+    background-color: #ffeeb6;
+    border: 2px solid white;
+    font-size: 20px;
+    font-style: italic;
+    margin: 10px 25% 0 25%;
+    padding: 0 0 1% 0;
+}
+
+h3 {
+    background: -webkit-linear-gradient(red, #333);
+    border-bottom: 2px solid white;
+    color: white;
+    font-size: 35px;
+    font-weight: 500;
+    margin-top: 0;
+    padding: 10px;
+}
+
+#game_canvas {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+}
