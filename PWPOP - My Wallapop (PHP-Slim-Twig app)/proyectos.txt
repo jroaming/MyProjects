@@ -1,2 +1,0 @@
-slim-test es mi ultima version de la practica pwpop
-(y tengo una copia aún anterior en ../slim-test_copia_seguridad

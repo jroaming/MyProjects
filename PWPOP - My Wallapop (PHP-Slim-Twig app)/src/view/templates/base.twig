@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css">
+
+    {% block styles %}{% endblock %}
+
+    {% block scripts %}
+        <!-- Bootstrap core JavaScript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"></script>
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{{ base_url() }}">PWPOP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+
+            <form id="searchForm" class="input-group" style="width: auto;margin: 0 20px 0 20px;" action="/search" method="post" enctype="multipart/form-data">
+                <input type="text" class="form-inline" placeholder="" aria-label="" aria-describedby="basic-addon1" style="width: 400px;" name="title">
+                <div class="input-group-append">
+                    <input class="btn btn-info" type="submit" value="Search">
+                </div>
+            </form>
+
+            <ul class="navbar-nav ml-0-auto d-flex flex-row">
+
+                {% block header %}{% endblock %}
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+{% block content %}{% endblock %}
+
+{% block footer %}
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; PWPOP(2019)</p>
+        </div>
+    </footer>
+{% endblock %}
+
+</body>
+</html>

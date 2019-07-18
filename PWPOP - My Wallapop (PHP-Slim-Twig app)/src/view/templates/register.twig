@@ -1,0 +1,142 @@
+{% extends "base.twig" %}
+
+{% block styles %}
+
+    <link href="{{ asset_url }}/assets/css/register.css" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block title %}PWPOP - Register page{% endblock %}
+
+{% block header %}
+
+    {% if isLogged %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/addItem">Add item</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/items">My items</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/profile">My profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/logout">Logout</a>
+        </li>
+
+    {% else %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/login">Login</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ base_url() }}/register">Register</a>
+        </li>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-xl-9 mx-auto">
+                <div class="card card-signin flex-row my-5">
+                    <div class="card-img-left d-none d-md-flex">
+                        <!-- Background image for card set in CSS! -->
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Register</h5>
+                        <form class="form-signin" enctype="multipart/form-data" onsubmit="return checkRegister()" method="POST">
+
+                            <div class="form-label-group">
+                                <input type="text" id="inputName" class="form-control" placeholder="Name" name="name" autofocus>
+                                <label for="inputName">Name</label>
+                            </div>
+                            <div>
+                                <a id="inputNameError" class="alert alert-danger" role="alert" style="display: none;">'Name' must contain only alphanumeric characters! </a>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username">
+                                <label for="inputUsername">Username</label>
+                            </div>
+                            <div>
+                                <a id="inputUsernameError1" class="alert alert-danger" role="alert" style="display: none;">'Username' must contain only alphanumeric characters! </a>
+                            </div>
+                            <div>
+                                <a id="inputUsernameError2" class="alert alert-danger" role="alert" style="display: none;">'Username' must be 20 characters long or less! </a>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" name="email">
+                                <label for="inputEmail">Email address</label>
+                            </div>
+                            <div>
+                                <a id="inputEmailError" class="alert alert-danger" role="alert" style="display: none;">Insert a correct email format! </a>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="date" id="inputBirthDate" class="form-control" placeholder="Birth Date" name="birthdate">
+                                <label for="inputBirthDate">Birth Date</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="tel" id="inputNumber" pattern="[0-9]{3} [0-9]{3} [0-9]{3}" class="form-control" placeholder="Phone Number" name="phone">
+                                <label for="inputNumber">Phone Number (XXX XXX XXX)</label>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
+                                <label for="inputPassword">Password</label>
+                            </div>
+                            <div>
+                                <a id="inputPasswordError" class="alert alert-danger" role="alert" style="display: none;">Password must be more than 6 characters long! </a>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" name="password2">
+                                <label for="inputConfirmPassword">Confirm password</label>
+                            </div>
+                            <div>
+                                <a id="inputConfirmPasswordError" class="alert alert-danger" role="alert" style="display: none;"> Passwords don't match! </a>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="file" id="inputImage" class="form-control" style="height: 65px;" name="inputImage">
+                                <label for="inputImage">Select a profile image:</label>
+                            </div>
+
+                            <hr>
+
+                            <input class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" value="Register">
+                            <a class="d-block text-center mt-2 small" href="login">Sign In</a>
+                        </form>
+                    </div>
+
+
+                    {% if errors is defined and errors|length > 0 %}
+                        <div class="card-body">
+                        {% for err in errors %}
+                            <li>{{ err }}</li>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="{{ base_url() }}/assets/js/checkRegisterForm.js" onsubmit="return checkRegister()" type="text/javascript"></script>
+{% endblock %}
+
+{% block footer %}
+{{ parent() }}
+{% endblock %}

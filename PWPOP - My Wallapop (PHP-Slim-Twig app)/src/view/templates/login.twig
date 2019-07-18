@@ -1,0 +1,112 @@
+{% extends "base.twig" %}
+
+{% block styles %}
+
+    <link href="{{ asset_url }}/assets/css/login.css" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block title %}PWPOP - Login page{% endblock %}
+
+{% block header %}
+
+    {% if isLogged %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/addItem">Add item</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/items">My items</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/profile">My profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/logout">Logout</a>
+        </li>
+
+    {% else %}
+
+        <li class="nav-item">
+            <a class="nav-link active" href="{{ base_url() }}/login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/register">Register</a>
+        </li>
+
+    {% endif %}
+
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+
+                {% if not msg == ''%}
+                    <div class="alert alert-success" role="alert" style="margin-top: 26px;">
+                        {{ msg }}
+                    </div>
+                {% endif %}
+
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Sign In</h5>
+
+                        <form class="form-signin" enctype="multipart/form-data" onsubmit="return checkLogin()" method="POST">
+                            <div class="form-label-group">
+                                <input type="text" id="inputName" class="form-control" placeholder="Email" name="email" autofocus>
+                                <label for="inputName">Email</label>
+                            </div>
+                            <div>
+                                <a id="inputEmailError" class="alert alert-danger" role="alert" style="display: none;">Insert a correct email format! </a>
+                            </div>
+
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password">
+                                <label for="inputPassword">Password</label>
+                            </div>
+                            <div>
+                                <a id="inputPasswordError" class="alert alert-danger" role="alert" style="display: none;">Password must be more than 6 characters long! </a>
+                            </div>
+
+                            <div class="custom-control custom-checkbox mb-3">
+                                <input type="checkbox" class="custom-control-input" id="customCheck1" name="remember">
+                                <label class="custom-control-label" for="customCheck1">Remember me</label>
+                            </div>
+
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                            <hr class="my-4">
+
+                            <!-- Logins innecesarios!! -->
+                            <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign in with Google</button>
+                            <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign in with Facebook</button>
+                        </form>
+
+                    </div>
+
+                    {% if errors is defined and errors|length > 0 %}
+                        <div class="card-body">
+                            {% for err in errors %}
+                                <li>{{ err }}</li>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+    <script src="{{ base_url() }}/assets/js/checkLoginForm.js" type="text/javascript" onsubmit="return checkLogin()"></script>
+{% endblock %}
+
+{% block footer %}
+{{ parent() }}
+{% endblock %}

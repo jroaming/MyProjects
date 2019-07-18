@@ -1,0 +1,104 @@
+{% extends "base.twig" %}
+
+{% block styles %}
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset_url }}/assets/css/shop-homepage.css" rel="stylesheet">
+
+{% endblock %}
+
+
+{% block title %}PWPOP - Home{% endblock %}
+
+{% block header %}
+
+    {% if isLogged %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/addItem">Add item</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/items">My items</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/profile">My profile</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/logout">Logout</a>
+        </li>
+
+    {% else %}
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ base_url() }}/register">Register</a>
+        </li>
+
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="flex-column">
+            <div class="alert alert-primary" role="alert" style="margin: 45px auto 20px auto;font-size: xx-large;text-align: center;">
+                <div class="spinner-grow" role="status" style="margin-right: 16px;">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <strong>HOME:</strong> Latest 5 products!
+                <div class="spinner-grow" role="status" style="margin-left: 16px;">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </div>
+
+
+            {% if msg is defined %}
+                {% if not msg == ''%}
+                    <div class="row col-sm-9 col-md-7 col-lg-5 mx-auto alert alert-success" role="alert" style="margin-top: 26px;">
+                        {{ msg }}
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            <div class="row" style="padding: 10px 0 0 0;margin-bottom: 25px;background-color: #cce5ff;">
+                {% for item in items|slice(0,5) %}
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <a href="{{ base_url() }}/item/{{ item.id }}"><img class="card-img-top" src="{{ base_url() }}/assets/uploads/productImages/{{ item.image }}" alt="Error!"></a>
+                            <div class="card-body">
+                                <h4 class="card-title" style="text-align: center;">
+                                    <a href={{ base_url() }}/item/{{ item.id }}"> {{ item.title }}</a>
+                                </h4>
+                                <p class="card-text"> {{ item.description }}</p>
+                                <div class="alert alert-info" role="alert">
+                                    <h5 style="text-align: center;padding-top: 5px;">{{ item.price }} €</h5>
+                                </div>
+
+                                <button class="btn btn-lg btn-info btn-block" onclick=location.href="{{ base_url() }}/item/{{ item.id }}">Go to item!</button>
+                                {% if isLogged %}<button class="btn btn-lg btn-success btn-block">Like this product</button>{% endif %}
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    {{ parent() }}
+{% endblock %}
+
+{% block footer %}
+    {{ parent() }}
+{% endblock %}
