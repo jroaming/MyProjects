@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% set i = 1 %}
+{% block content %}
+    <form
+            enctype="multipart/form-data"
+            method="POST">
+        <label>
+            Username
+            <input type="text" name="username">
+        </label>
+        <label>
+            Email
+            <input type="text" name="email">
+        </label>
+        <label>
+            Password
+            <input type="password" name="password">
+        </label>
+        <input type="submit" value="Register">
+
+    </form>
+
+    {% if errors|length > 0 %}
+        <p>Errores encontrados!</p>
+        {% for e in errors %}
+            <li>{{ e }}</li>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
+
+{% block navbar %}
+{% endblock %}

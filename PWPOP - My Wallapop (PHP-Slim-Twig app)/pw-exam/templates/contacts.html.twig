@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% set i = 1 %}
+{% block content %}
+    <div class="list">
+        {% for contact in contacts %}
+            <p>Nom: {{ contact.name }}</p>
+            <p>Cognom: {{ contact.surname }}</p>
+            <p>Telefon: {{ contact.phone }}</p>
+            <a href="contacts/delete/{{ contact.id }}">Esborrar contacte!</a>
+        {% endfor %}
+
+        {% if esborrar_contacte is defined %}
+            <p>{{ esborrar_contacte }}</p>
+        {% endif %}
+
+    </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% set i = 1 %}
+{% block content %}
+    <div class="list">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Activity</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Scheduled At</th>
+                <th scope="col">Description</th>
+                {% if logged %}
+                    <th scope="col">Delete</th>
+                {% endif %}
+            </tr>
+            </thead>
+            <tbody>
+
+            {% for activity in activities %}
+
+                <tr class="table-light">
+                    <th scope="row">{{ i }}</th>
+                    <td><a class="name" href="/activity/{{activity.id}}">{{ activity.name }}</a></td>
+                    <td>{{ activity.price }} €</td>
+                    <td>{{ activity.createdAt|date('d-m-Y H:00')}}</td>
+                    <td>{{ activity.activityTime|date('d-m-Y H:00')}}</td>
+                    <td>{{ activity.description }}</td>
+                    {% if logged %}
+                        <td><a href="/activity/{{activity.id}}/delete">Delete Activity</a></td>
+                    {% endif %}
+                </tr>
+                {% set i = i + 1 %}
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block navbar %}
+    {% if not logged %}
+        <!--
+        <form action="/register">
+            <input type="submit" value="Registre" />
+        </form>
+        <form action="/login">
+            <input type="submit" value="Login" />
+        </form>
+        -->
+        <a href = "{{ base_url() }}/login"> Login </a>
+        <a href = "{{ base_url() }}/register"> Register </a>
+
+    {% endif %}
+{% endblock %}

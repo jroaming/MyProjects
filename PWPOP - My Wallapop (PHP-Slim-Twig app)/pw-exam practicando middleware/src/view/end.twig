@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    LOGGED
+{% endblock %}
+
+{% block content %}
+    <h3>U logged succesfully!</h3>
+    <p>Here, the database users are shown:</p>
+
+    {% if username is defined and password is defined %}
+    <p>Username: {{ username }}</p>
+    <p>Password: {{ password }}</p>
+    {% endif %}
+
+{% endblock %}
